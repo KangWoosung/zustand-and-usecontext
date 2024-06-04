@@ -12,7 +12,7 @@ import {
   saveTodosToLocalStorage,
 } from "@/app/utils/todosIO";
 
-// 2. Zustand 버전의 useStore 훅
+// 2. Zustand 버전의 useTodoStore  훅
 export const useTodoStore = create<InitialStateType>((set, get) => ({
   ...initialState,
 
@@ -21,40 +21,50 @@ export const useTodoStore = create<InitialStateType>((set, get) => ({
     return currentUser !== null;
   },
 
-  setUser: (user: string) => {
+  setCurrentUser: (user: string) => {
     set(() => ({ currentUser: user }));
     return;
   },
 
   addTodo: (todo: TodoType) => {
+    console.log(todo);
     set((state) => {
       const updatedTodos = [...state.todos, todo];
+      console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
-      return { todos: updatedTodos };
+      return { ...state, todos: updatedTodos };
     });
   },
 
   deleteTodo: (id: string) => {
     set((state) => {
+      console.log(state);
       const updatedTodos = state.todos.filter((todo) => todo.id !== id);
+      console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
-      return { todos: updatedTodos };
+      return { ...state, todos: updatedTodos };
     });
   },
 
   updateTodo: (id: string, updatedFields: Partial<TodoType>) => {
+    console.log("updateTodo", id, updatedFields);
     set((state) => {
+      console.log(state);
       const updatedTodos = state.todos.map((todo) =>
         todo.id === id
           ? { ...todo, ...updatedFields, updatedAt: new Date() }
           : todo
       );
+      console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
-      return { todos: updatedTodos };
+      return { ...state, todos: updatedTodos };
     });
   },
 
   loadTodos: () => {
-    set(() => ({ todos: loadTodosFromLocalStorage() }));
+    const todos = loadTodosFromLocalStorage();
+    console.log(todos);
+    set(() => ({ todos }));
+    return todos;
   },
 }));

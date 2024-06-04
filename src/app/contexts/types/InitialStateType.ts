@@ -8,10 +8,10 @@ export type InitialStateType = {
   isLoading: boolean;
   isError: boolean;
   todos: TodoType[];
-  checkAuth: () => boolean;
-  setUser: (user: string) => void;
+  checkAuth: (check: boolean) => boolean;
+  setCurrentUser: (user: string) => void;
   addTodo: (todo: TodoType) => void;
   deleteTodo: (id: string) => void;
-  updateTodo: (id: string, todo: TodoType) => void;
-  loadTodos: () => void;
+  updateTodo: (id: string, updatedFields: Partial<TodoType>) => void;
+  loadTodos: () => TodoType[];
 };
