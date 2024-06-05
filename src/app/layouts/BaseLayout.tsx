@@ -14,7 +14,7 @@ const BaseLayout = ({
 }) => {
   return (
     <>
-      <div className="wrapper flex flex-col mt-0 h-svh">
+      <div className="wrapper flex flex-col mt-0 min-h-svh">
         <ul className="flex flex-row justify-center border-solid rounded-lg bg-slate-500 text-gray-100">
           <li className=" py-4 px-8">
             <Link href={"/"}>Home</Link>

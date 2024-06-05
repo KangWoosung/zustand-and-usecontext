@@ -1,16 +1,28 @@
 /*  2024-06-03 11:11:02
 
+https://codesandbox.io/p/github/KangWoosung/zustand-and-usecontext/draft/stoic-architecture
 
+IonicTodoProvider
 */
 
+"use client";
+import {
+  IonicTodoProvider,
+  useIonicContext,
+} from "@/app/contexts/context/useIonicContext";
+import AuthForm from "@/app/features/AuthForm";
+import TodoList from "@/app/features/TodoList";
 import React from "react";
+import InnerContextPage from "./InnerContextPage";
 
-const page = () => {
+const OuterContextPage = () => {
   return (
     <>
-      <div>page for context</div>
+      <IonicTodoProvider>
+        <InnerContextPage />
+      </IonicTodoProvider>
     </>
   );
 };
 
-export default page;
+export default OuterContextPage;

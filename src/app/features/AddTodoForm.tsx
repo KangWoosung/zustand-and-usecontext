@@ -3,6 +3,7 @@
 
 */
 
+"use client";
 import React, { useState } from "react";
 import { useTodoStore } from "../contexts/zustand/hooks/useTodoStore";
 import { TodoType } from "../contexts/types/TodoType";

@@ -27,10 +27,9 @@ export const useTodoStore = create<InitialStateType>((set, get) => ({
   },
 
   addTodo: (todo: TodoType) => {
-    console.log(todo);
     set((state) => {
       const updatedTodos = [...state.todos, todo];
-      console.log(updatedTodos);
+      // console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
       return { ...state, todos: updatedTodos };
     });
@@ -38,24 +37,21 @@ export const useTodoStore = create<InitialStateType>((set, get) => ({
 
   deleteTodo: (id: string) => {
     set((state) => {
-      console.log(state);
       const updatedTodos = state.todos.filter((todo) => todo.id !== id);
-      console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
       return { ...state, todos: updatedTodos };
     });
   },
 
   updateTodo: (id: string, updatedFields: Partial<TodoType>) => {
-    console.log("updateTodo", id, updatedFields);
+    // console.log("updateTodo", id, updatedFields);
     set((state) => {
-      console.log(state);
       const updatedTodos = state.todos.map((todo) =>
         todo.id === id
           ? { ...todo, ...updatedFields, updatedAt: new Date() }
           : todo
       );
-      console.log(updatedTodos);
+      // console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
       return { ...state, todos: updatedTodos };
     });
@@ -63,7 +59,6 @@ export const useTodoStore = create<InitialStateType>((set, get) => ({
 
   loadTodos: () => {
     const todos = loadTodosFromLocalStorage();
-    console.log(todos);
     set(() => ({ todos }));
     return todos;
   },
