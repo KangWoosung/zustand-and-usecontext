@@ -64,8 +64,9 @@ const AuthForm = ({
             id="userName"
             type="text"
             placeholder="userName"
-            className="peer rounded-md border-2 outline-0 p-2 w-[100%] font-light text-slate-300 
+            className="peer rounded-md border-2 outline-0 mt-4 p-2 w-[100%] font-light text-slate-300 
             placeholder-transparent
+            border-[color:var(--chat-bubble-deep-background-color)]
             bg-[color:var(--chat-bubble-background-color)] 
             border-transparent
             focus:border-[color:var(--chat-bubble-deep-background-color)]
@@ -73,7 +74,7 @@ const AuthForm = ({
           />
           <label
             htmlFor="userName"
-            className="absolute left-2 -top-5 text-gray-300 text-sm
+            className="absolute left-2 -top-8 mt-4 text-gray-300 text-sm
             transition-all
             peer-placeholder-shown:text-base
             peer-placeholder-shown:text-gray-400
