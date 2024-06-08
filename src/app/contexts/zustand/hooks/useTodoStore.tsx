@@ -29,7 +29,6 @@ export const useTodoStore = create<InitialStateType>((set, get) => ({
   addTodo: (todo: TodoType) => {
     set((state) => {
       const updatedTodos = [...state.todos, todo];
-      // console.log(updatedTodos);
       saveTodosToLocalStorage(updatedTodos);
       return { ...state, todos: updatedTodos };
     });

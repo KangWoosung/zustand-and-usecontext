@@ -3,7 +3,6 @@
 
 */
 
-"use client";
 import {
   loadTodosFromLocalStorage,
   saveTodosToLocalStorage,
@@ -12,7 +11,7 @@ import {
   REDUCER_ACTION_TYPE,
   ReducerAction,
 } from "../action/ionicReducerAction";
-import { InitialStateType } from "../useIonicContext";
+import { InitialStateType } from "../ver01/useIonicContext";
 
 export const ionicReducer = (
   state: InitialStateType,
@@ -43,6 +42,8 @@ export const ionicReducer = (
       return { ...state, todos: updatedTodos };
     case REDUCER_ACTION_TYPE.LOAD_TODOS:
       const todos = loadTodosFromLocalStorage();
+      console.log("loaded todos");
+      console.log(todos);
       return { ...state, todos };
     default:
       return state;

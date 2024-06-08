@@ -4,9 +4,9 @@
 */
 
 import React, { useRef } from "react";
-import { useTodoStore } from "../contexts/zustand/hooks/useTodoStore";
+import { useTodoStore } from "../../contexts/zustand/hooks/useTodoStore";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { TodoType } from "../contexts/types/TodoType";
+import { TodoType } from "../../contexts/types/TodoType";
 import { IoCloudDoneOutline } from "react-icons/io5";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -14,11 +14,10 @@ type ToDoProps = {
   todo: TodoType;
   index: number;
   deleteTodo: (id: string) => void;
+  updateTodo: (id: string, updatedFields: Partial<TodoType>) => void;
 };
 
-const Todo = ({ todo, index, deleteTodo }: ToDoProps) => {
-  const updateTodo = useTodoStore((state) => state.updateTodo);
-
+const Todo = ({ todo, index, deleteTodo, updateTodo }: ToDoProps) => {
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const handleToggle = (index: number) => {
     const contentElement = contentRefs.current[index];

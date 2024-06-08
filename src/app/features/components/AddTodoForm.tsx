@@ -5,24 +5,21 @@
 
 "use client";
 import React, { useState } from "react";
-import { useTodoStore } from "../contexts/zustand/hooks/useTodoStore";
-import { TodoType } from "../contexts/types/TodoType";
-import { InputGroup } from "../components/form/InputGroup";
+import { useTodoStore } from "../../contexts/zustand/hooks/useTodoStore";
+import { TodoType } from "../../contexts/types/TodoType";
+import { InputGroup } from "../../components/form/InputGroup";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AddTodoSchemaType, addTodoSchema } from "../schemas/addTodoSchema";
+import { AddTodoSchemaType, addTodoSchema } from "../../schemas/addTodoSchema";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
-const AddTodoForm = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+type AddTodoFormProps = {
+  addTodo: (todo: TodoType) => void;
+};
 
-  // 선택적 구독!!!
-  const { currentUser, setCurrentUser } = useTodoStore();
-  // const loadTodos = useTodoStore((state) => state.loadTodos);
-  const addTodo = useTodoStore((state) => state.addTodo);
-  // const updateTodo = useTodoStore((state) => state.updateTodo);
-  // const todos = useTodoStore((state) => state.todos);
+const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     register,

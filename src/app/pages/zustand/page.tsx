@@ -1,8 +1,6 @@
 /*  2024-06-03 07:09:41
 
-아.. 이거 여기에도 RHF, Zod 넣어야 하나??
-하자. 30분도 안걸린다. 넣자. 
-
+RHF, Zod
 npm install react-hook-form
 npm install @hookform/resolvers
 npm install zod
@@ -38,8 +36,8 @@ npm install zod
 "use client";
 
 import { useTodoStore } from "@/app/contexts/zustand/hooks/useTodoStore";
-import AuthForm from "@/app/features/AuthForm";
-import TodoList from "@/app/features/TodoList";
+import { AuthForm } from "@/app/features/zustand";
+import { TodoList } from "@/app/features/zustand";
 import { loadTodosFromLocalStorage } from "@/app/utils/todosIO";
 
 const ZustandPage = () => {

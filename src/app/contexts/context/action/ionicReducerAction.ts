@@ -3,7 +3,6 @@
 
 */
 
-"use client";
 import { TodoType } from "../../types/TodoType";
 
 export const enum REDUCER_ACTION_TYPE {

@@ -1,20 +1,23 @@
 /*  2024-06-04 07:06:21
 
+2024-06-06 06:35:54
+주요 prop 을 사전처리해서 prop 으로 받았기 때문에, 이 코드는 zustand 와 context 공통으로 사용될 수 있었다. 
+손 볼 일 없음. 끗
 
 */
 
 "use client";
 import React, { useState } from "react";
-import { InputGroup } from "../components/form/InputGroup";
+import { InputGroup } from "../../components/form/InputGroup";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthSchemaType, authSchema } from "../schemas/authSchema";
+import { AuthSchemaType, authSchema } from "../../schemas/authSchema";
 import { useForm } from "react-hook-form";
-import { useTodoStore } from "../contexts/zustand/hooks/useTodoStore";
+import { useTodoStore } from "../../contexts/zustand/hooks/useTodoStore";
 
 type AuthFormProps = {
   currentUser: string | null;
-  checkAuth: (auth: boolean) => void;
   setCurrentUser: (user: string) => void;
+  checkAuth?: (auth: boolean) => void;
 };
 
 const AuthForm = ({
@@ -39,7 +42,7 @@ const AuthForm = ({
 
     try {
       await makeTimeout(1000);
-      checkAuth(true);
+      // checkAuth(true);
       setCurrentUser(userName);
     } catch (e) {
       console.error(e);

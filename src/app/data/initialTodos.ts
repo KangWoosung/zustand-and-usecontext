@@ -4,7 +4,7 @@
 */
 
 import { TodoType } from "../contexts/types/TodoType";
-import { initialState } from "./initialState";
+// import { initialState } from "./initialState";
 
 export const dummyTodos: TodoType[] = [
   {
