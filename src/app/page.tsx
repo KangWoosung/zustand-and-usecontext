@@ -40,6 +40,34 @@ Kyle's folder structure suggestions...
 -utils
     -format utility functions etc
 
+--------------------------------------------------------
+2024-06-10 10:27:46
+folder structure at the end..
+-components
+    -form
+-contexts
+    -context
+        -action
+        -hooks
+        -reducer
+    -types
+    -zustand
+        -hooks
+-data
+-features
+    -conponents
+    -context
+    -zustand
+-hooks
+-layouts
+-lib
+-pages
+    -context
+    -zustand
+-schemas
+-services
+-utils
+
 
 
 */

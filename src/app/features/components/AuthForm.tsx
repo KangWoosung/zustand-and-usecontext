@@ -68,7 +68,6 @@ const AuthForm = ({
             placeholder-transparent
             border-[color:var(--chat-bubble-deep-background-color)]
             bg-[color:var(--chat-bubble-background-color)] 
-            border-transparent
             focus:border-[color:var(--chat-bubble-deep-background-color)]
             z-0"
           />
